@@ -1,4 +1,4 @@
-FROM golang:1.24.2@sha256:d9db32125db0c3a680cfb7a1afcaefb89c898a075ec148fdc2f0f646cc2ed509 AS bff-builder
+FROM golang:1.24.3@sha256:86b4cff66e04d41821a17cea30c1031ed53e2635e2be99ae0b4a7d69336b5063 AS bff-builder
 
 ARG BUILD_VERSION
 ARG BUILD_COMMIT
@@ -17,7 +17,7 @@ RUN set -ex && \
   -w -s" \
   -o /bin/bff
 
-FROM --platform=$BUILDPLATFORM node:23.11.0-alpine3.20@sha256:45b0799541e0fa993516a147bd9c59a5c2b81ec06cfb8f6e6e18d222f2780e23 AS web-builder
+FROM --platform=$BUILDPLATFORM node:24.0.2-alpine3.20@sha256:3ce0ee44c2aa0ef436a24241ce25c590ae457b915ef840b1a423653419e8fc3e AS web-builder
 
 ARG BUILD_VERSION
 
